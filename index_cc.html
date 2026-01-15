@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XplorPay - Payment Processing Solutions</title>
+    <style>
+        @font-face {
+            font-family: 'NNNouvelleGroteskSTD';
+            src: url('NNNouvelleGroteskSTD-Normal.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'NNNouvelleGroteskSTD', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1A0A2E;
+            line-height: 1.6;
+            background: #FAFAFA;
+        }
+
+        /* Header */
+        header {
+            background: #FAFAFA;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1A0A2E;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FF5733;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1A0A2E 0%, #2D1B4E 100%);
+            color: #FAFAFA;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-highlight {
+            color: #FF5733;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1A0A2E;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255,87,51,0.15);
+        }
+
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #1A0A2E;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            background: #F5F5F5;
+            padding: 80px 40px;
+        }
+
+        .solutions-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .solution-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .solution-header {
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .ic-plus-header {
+            background: linear-gradient(135deg, #5B51D8 0%, #7B6FFF 100%);
+        }
+
+        .dual-pricing-header {
+            background: linear-gradient(135deg, #FF5733 0%, #FF8A5B 100%);
+        }
+
+        .solution-header h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .solution-header .tagline {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .solution-body {
+            padding: 40px;
+        }
+
+        .solution-body h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #1A0A2E;
+        }
+
+        .solution-body p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .solution-features li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .solution-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FF5733;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #FF5733;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background: #E64525;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,87,51,0.3);
+        }
+
+        .cta-button-secondary {
+            background: #1A0A2E;
+        }
+
+        .cta-button-secondary:hover {
+            background: #2D1B4E;
+        }
+
+        /* Footer */
+        footer {
+            background: #1A0A2E;
+            color: #FAFAFA;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .solution-cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .header-container {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <img src="xplorpay-logo.png" alt="XplorPay" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Payment Solutions to Help <span class="hero-highlight">Your Business Succeed</span></h1>
+        <p>Transparent pricing, powerful technology, and expert support. We provide enterprise-grade payment processing tailored for businesses of all sizes.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Payment Services</h2>
+        <p class="section-subtitle">Complete payment solutions designed to streamline your business operations and maximize profitability</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💳</div>
+                <h3>Accept All Payments</h3>
+                <p>Process credit cards, debit cards, ACH, and digital wallets with our secure, cloud-based platform. Accept payments in-store, online, or on-the-go.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <h3>Secure & Compliant</h3>
+                <p>PCI-compliant processing with advanced fraud protection, tokenization, and encryption to keep your business and customers safe.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Transparent Reporting</h3>
+                <p>Access real-time transaction data, detailed analytics, and comprehensive reporting through our intuitive merchant portal.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Fast Funding</h3>
+                <p>Get paid quickly with next-day funding options. No delays, no surprises—just reliable access to your money when you need it.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>Expert Support</h3>
+                <p>Dedicated support team ready to help with onboarding, troubleshooting, and optimizing your payment processing strategy.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Omnichannel Ready</h3>
+                <p>Virtual terminal, mobile payments, text-to-pay, recurring billing, and e-invoicing—all integrated into one seamless platform.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
+        <div class="solutions-container">
+            <h2 class="section-title">Pricing Solutions That Work For You</h2>
+            <p class="section-subtitle">Choose the pricing model that best fits your business needs and profit goals</p>
+
+            <div class="solution-cards">
+                <!-- IC+ Card -->
+                <div class="solution-card">
+                    <div class="solution-header ic-plus-header">
+                        <h3>Interchange-Plus (IC+)</h3>
+                        <p class="tagline">Transparent & Competitive</p>
+                    </div>
+                    <div class="solution-body">
+                        <h4>Pay What You Should, Nothing More</h4>
+                        <p>Interchange-Plus pricing gives you complete transparency by separating wholesale card costs from our processing markup. You see exactly what goes to the card networks and what you pay us.</p>
+                        
+                        <ul class="solution-features">
+                            <li>True wholesale interchange rates passed through at cost</li>
+                            <li>Fixed, transparent markup—no hidden fees</li>
+                            <li>Lower costs as card mix improves</li>
+                            <li>Ideal for businesses with consistent volume</li>
+                            <li>Full visibility into every transaction</li>
+                        </ul>
+
+                        <p><strong>Best For:</strong> Businesses seeking the lowest possible rates with transparent, predictable pricing.</p>
+
+                        <a href="https://lowerccfees.com/ic-plus" class="cta-button">Get an IC+ Quote</a>
+                    </div>
+                </div>
+
+                <!-- Dual Pricing Card -->
+                <div class="solution-card">
+                    <div class="solution-header dual-pricing-header">
+                        <h3>Dual Pricing / Cash Discounting</h3>
+                        <p class="tagline">Eliminate Processing Fees</p>
+                    </div>
+                    <div class="solution-body">
+                        <h4>Zero Credit Card Processing Costs</h4>
+                        <p>Dual pricing (cash discounting) is a legal, compliant program that allows you to pass credit card processing costs to customers who choose to pay by card, while rewarding cash payers with a discount.</p>
+                        
+                        <ul class="solution-features">
+                            <li>$0 credit card processing fees</li>
+                            <li>Service fee offsets all credit card costs</li>
+                            <li>Legal in all 50 states when properly implemented</li>
+                            <li>Minimal costs for PIN debit transactions only</li>
+                            <li>Increase profit margins instantly</li>
+                        </ul>
+
+                        <p><strong>Best For:</strong> Businesses looking to eliminate processing costs and maximize profitability.</p>
+
+                        <a href="https://lowerccfees.com/dual-price" class="cta-button cta-button-secondary">Get a Dual Pricing Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2026 XplorPay. All rights reserved. | Powered by Xplor Technologies</p>
+        <p style="margin-top: 10px;">Helping businesses succeed with transparent payment processing solutions</p>
+    </footer>
+</body>
+</html>
